@@ -5,7 +5,15 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --progress --port 8090",
     "build": "rm -rf dist/* && webpack -p --colors",
+    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*": "gitignored",
+    "*.js": ["eslint --fix", "git add"]
+  },
+  "gitignored": {
+    "types": ["Global/macOS", "Global/Linux"]
   },
   "author": "Minchenko Valery <valery.vs.va@gmail.com> (https://github.com/ValeryVS)",
   "license": "MIT",
@@ -14,8 +22,11 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
     "flow-bin": "^0.68.0",
+    "gitignored": "^1.1.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.7",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12"
   },
